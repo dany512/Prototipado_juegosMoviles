@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import XXXNoScope360HeadShot.loader.XXXLoader;
 	
 	/**
 	 * ...
@@ -19,7 +20,14 @@ package
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
+			XXXLoader.load("assets.swf", goGame);
+			
+		}
+		private function goGame():void
+		{
+			trace("creo Game");
+			var game:Game = new Game();
+			addChild(game);
 		}
 		
 	}
