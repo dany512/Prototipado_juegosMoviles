@@ -34,7 +34,6 @@ package
 		override public function update():void
 		{
 			if (rand > 0.5) {
-				trace(velocity);
 				x += velocity;
 				y -= velocityY;
 			}
