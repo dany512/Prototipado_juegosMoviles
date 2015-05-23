@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:393e23768bb557911408b79422453d17$ -->
+<TextureAtlas imagePath="textureAtlas.png">
+    <SubTexture name="monkey_1" x="2" y="2" width="132" height="152" frameX="-4" frameY="-8" frameWidth="140" frameHeight="168"/>
+    <SubTexture name="monkey_walk_left_1" x="96" y="158" width="92" height="154" frameX="-29" frameY="-8" frameWidth="140" frameHeight="168"/>
+    <SubTexture name="monkey_walk_left_2" x="2" y="312" width="92" height="154" frameX="-29" frameY="-8" frameWidth="140" frameHeight="168"/>
+    <SubTexture name="monkey_walk_right_1" x="2" y="156" width="92" height="154" frameX="-18" frameY="-8" frameWidth="140" frameHeight="168"/>
+    <SubTexture name="monkey_walk_right_2" x="136" y="2" width="92" height="154" frameX="-18" frameY="-8" frameWidth="140" frameHeight="168"/>
+</TextureAtlas>
