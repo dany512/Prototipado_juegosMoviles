@@ -25,7 +25,6 @@ package xxx.views
 			addEventListener(Event.REMOVED_FROM_STAGE, removed);
 			init();
 		}
-		
 		public function init():void 
 		{
 			if (texture != null) {

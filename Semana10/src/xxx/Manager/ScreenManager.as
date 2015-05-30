@@ -24,14 +24,10 @@ package xxx.Manager
 			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
 			addEventListener(Event.REMOVED_FROM_STAGE, removed);
 			addEventListener(NavigationEvent.CHANGE_VIEW, onChangeView);
-			init();
 		}
-		
-		public function init():void 
+		public function start():void 
 		{
-			
 		}
-		
 		public function onChangeView(e:NavigationEvent):void 
 		{
 			

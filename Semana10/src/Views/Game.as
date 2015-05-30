@@ -1,6 +1,8 @@
 package Views 
 {
 	import GameObjects.Ball;
+	import GameObjects.Floor;
+	import GameObjects.Hero;
 	import nape.callbacks.CbEvent;
 	import nape.callbacks.CbType;
 	import nape.callbacks.InteractionCallback;
@@ -15,8 +17,11 @@ package Views
 	import nape.space.Space;
 	import nape.util.BitmapDebug;
 	import starling.core.Starling;
+	import starling.display.Sprite;
 	import starling.events.Event;
+	import xxx.input.XXXKeyboard;
 	import xxx.start.XXXStarling;
+	import xxx.time.XXXTime;
 	import xxx.views.XXXView;
 	/**
 	 * ...
@@ -26,11 +31,13 @@ package Views
 	{
 		private var debug:BitmapDebug;
 		private var space:Space;
-		private var floor:Body;
+		private var floor:Floor;
 		private var ifDebug:Boolean = false;
 		private var wallGroup:CbType;
 		private var ballGroup:CbType;
 		private var interaction:InteractionListener;
+		private var balls:Sprite;
+		private var hero:Hero;
 		public function Game() 
 		{
 			super();
@@ -41,18 +48,22 @@ package Views
 			super.init();
 			wallGroup = new CbType();
 			ballGroup = new CbType();
-			interaction = new InteractionListener(CbEvent.BEGIN, InteractionType.COLLISION, wallGroup, ballGroup, checkCollision);
-			space = new Space(new Vec2(0, 5000));
-			floor = new Body(BodyType.STATIC);
-			floor.shapes.add(new Polygon(Polygon.rect(0, stage.stageHeight, stage.stageWidth, 50)));
-			floor.cbTypes.add(wallGroup);
-			floor.space = space;
+			space = new Space(new Vec2(0, 400));
+			floor = new Floor(space);
+			addChild(floor);
+			XXXKeyboard.init(stage);
+			XXXTime.init();
+			floor.addCollisionType(wallGroup);
+			balls = new Sprite();
+			addChild(balls);
+			hero = new Hero(space, new Vec2(stage.stageWidth / 2, stage.stageHeight - 150 ));
+			addChild(hero);
+			hero.onCreateBullet = generateBall;
 			debug = new BitmapDebug(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight);
 			if (ifDebug)
 			{
 				Starling.current.nativeOverlay.addChild(debug.display);
 			}
-			space.listeners.add(interaction);
 			stage.addEventListener(Event.ENTER_FRAME, loop);
 			
 		}
@@ -64,10 +75,12 @@ package Views
 		
 		private function loop(e:Event):void 
 		{
-			if (Math.random() < 0.03)
+			XXXTime.update();
+			hero.update();
+			/*if (Math.random() < 0.03)
 			{
 				generateBall();
-			}
+			}*/
 			if (debug)
 			{
 				debug.clear();
@@ -75,25 +88,17 @@ package Views
 				debug.flush();
 			}
 			space.step(1 / 60);
-			space.liveBodies.foreach(updatePositions);
+			for (var i:int = 0; i < balls.numChildren; i++) 
+			{
+				var b:Ball = balls.getChildAt(i) as Ball;
+				b.update();
+			}
 		}
-		
-		private function updatePositions(b:Body):void 
+		private function generateBall(posX:Number,PosY:Number):void 
 		{
-			b.userData.graphics.x = b.position.x;
-			b.userData.graphics.y = b.position.y;
-			b.userData.graphics.rotation = b.rotation;
-		}
-		
-		private function generateBall():void 
-		{
-			var ball:Body = new Body(BodyType.DYNAMIC, new Vec2(Math.random() * stage.stageWidth, 0));
-			ball.shapes.add(new Circle(50, null, new Material(20)));
-			ball.cbTypes.add(ballGroup);
-			ball.space = space;
-			ball.userData.graphics = new Ball();
-			addChild(ball.userData.graphics);
-			
+			var ball:Ball = new Ball(space,new Vec2(posX,PosY));
+			balls.addChild(ball);
+			ball.body.group = hero.body.group;
 		}
 		
 	}

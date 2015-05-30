@@ -24,12 +24,14 @@ package
 			var assets:Vector.<String> = new Vector.<String>();
 			assets.push("assets/back.png");
 			assets.push("assets/basketball.png");
+			assets.push("assets/assets.png");
+			assets.push("assets/assets.xml");
 			XXXStarling.init(stage, Views.manageView, assets, goGame);
 		}
 		
 		private function goGame(game:Object):void 
 		{
-			game.init();
+			game.start();
 		}
 		
 	}

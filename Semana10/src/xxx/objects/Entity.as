@@ -25,13 +25,17 @@ package xxx.objects
 		
 		public function Entity() 
 		{
+			states = new Dictionary();
+			_position = new Vector2D(0, 0);
+			acceleration = new Vector2D(0, 0);
+			velocity = new Vector2D(0, 0);
 			addEventListener(Event.ADDED_TO_STAGE, added);
 		}
 		
 		private function added(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, added);
-			states = new Dictionary();
+			
 			init();
 		}
 		
@@ -75,11 +79,8 @@ package xxx.objects
 					onCompleteAnimation();
 				}
 			}
-			
-			if (position != null) {
-				x = position.x;
-				y = position.y;
-			}
+			x = position.x;
+			y = position.y;
 		}
 		
 		public function onCompleteAnimation():void 
@@ -89,26 +90,27 @@ package xxx.objects
 		
 		public function init():void 
 		{
-			if (textures.length>1) {
-				var mc:MovieClip = new MovieClip(textures);
-				if (centerPivot) {
-					mc.alignPivot();
+			if (textures != null)
+			{
+				if (textures.length>1) {
+					var mc:MovieClip = new MovieClip(textures);
+					if (centerPivot) {
+						mc.alignPivot();
+					}
+					addChild(mc);
+					Starling.juggler.add(mc);
+				}else {
+					var img:Image= new Image(textures[0]);
+					addChild(img);
+					if (centerPivot) {
+						img.alignPivot();
+					}
 				}
-				addChild(mc);
-				Starling.juggler.add(mc);
-			}else {
-				var img:Image= new Image(textures[0]);
-				addChild(img);
-				if (centerPivot) {
-					img.alignPivot();
+				if(position!=null){
+					x = position.x;
+					y = position.y;
 				}
 			}
-			if(position!=null){
-				x = position.x;
-				y = position.y;
-			}
-			acceleration = new Vector2D(0, 0);
-			velocity = new Vector2D(0, 0);
 		}
 		
 		public function destroy():void {

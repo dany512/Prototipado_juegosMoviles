@@ -14,7 +14,7 @@ package Views
 			super();
 			
 		}
-		override public function init():void 
+		override public function start():void 
 		{
 			current = new Game();
 			addChild(current);
