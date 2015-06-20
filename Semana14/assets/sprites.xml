@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="sprites.png">
+	<!-- Created with Adobe Flash Professional version 14.0.0.110 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="BG.jpg" x="0" y="96" width="1501" height="601" pivotX="0" pivotY="0"/>
+	<SubTexture name="coin.png" x="1501" y="96" width="32" height="32" pivotX="0" pivotY="0"/>
+	<SubTexture name="crate.png" x="1533" y="96" width="64" height="64" pivotX="0" pivotY="0"/>
+	<SubTexture name="jump.png" x="0" y="0" width="68" height="94" pivotX="0" pivotY="0"/>
+	<SubTexture name="movplatform.png" x="1597" y="96" width="62" height="18" pivotX="0" pivotY="0"/>
+	<SubTexture name="side.png" x="68" y="0" width="66" height="92" pivotX="0" pivotY="0"/>
+	<SubTexture name="slime_dead.png" x="884" y="0" width="54" height="8" pivotX="0" pivotY="0"/>
+	<SubTexture name="slime_normal.png" x="938" y="0" width="43" height="28" pivotX="0" pivotY="0"/>
+	<SubTexture name="slime_walk.png" x="981" y="0" width="43" height="26" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0001.png" x="809" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0002.png" x="134" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0003.png" x="209" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0004.png" x="284" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0005.png" x="359" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0006.png" x="434" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0007.png" x="509" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0008.png" x="584" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0009.png" x="659" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0010.png" x="734" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+	<SubTexture name="walk0011.png" x="809" y="0" width="75" height="96" pivotX="0" pivotY="0"/>
+</TextureAtlas>
